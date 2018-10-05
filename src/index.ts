@@ -4,7 +4,7 @@ interface IQueue {
 	inspect(): string
 	isEmpty(): boolean
 	peek(): any
-	enqueue(items: any[]): any
+	enqueue(newItems: any[]): any
 	dequeue(): IQueue
 	equals(IQueue): boolean
 	lte(IQueue): boolean
@@ -12,30 +12,30 @@ interface IQueue {
 	empty(): IQueue
 }
 
-function Quuu(...xs: any[]): IQueue {
+function Quuu(...items: any[]): IQueue {
 	return {
 		[Symbol.iterator]: function*() {
-			yield* xs
+			yield* items
 		},
-		length: xs.length,
-		inspect: () => xs.join(' <- '),
-		isEmpty: () => (xs.length ? true : false),
-		peek: () => (xs.length ? xs[0] : null),
-		enqueue: (...items) => Quuu(...xs, ...items),
+		length: items.length,
+		inspect: () => items.join(' <- '),
+		isEmpty: () => (items.length ? true : false),
+		peek: () => (items.length ? items[0] : null),
+		enqueue: (...newItems) => Quuu(...items, ...items),
 		dequeue: () => {
-			const [_, ...tail] = xs
+			const [_, ...tail] = items
 			return Quuu(...tail)
 		},
 		// Static-land
-		equals: q => {
+		equals: queue => {
 			let i = 0
-			for (const value of q[Symbol.iterator]())
-				if (xs[i++] !== value) return false
+			for (const value of queue[Symbol.iterator]())
+				if (items[i++] !== value) return false
 
 			return true
 		},
-		lte: q => xs.length <= q.length,
-		concat: q => Quuu(...xs, ...q[Symbol.iterator]()),
+		lte: queue => items.length <= queue.length,
+		concat: queue => Quuu(...items, ...queue[Symbol.iterator]()),
 		empty: () => Quuu()
 	}
 }
