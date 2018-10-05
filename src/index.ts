@@ -1,4 +1,18 @@
-function Queue(...xs) {
+interface IQueue {
+	[Symbol.iterator](): Iterable<any>
+	length: number
+	inspect(): string
+	isEmpty(): boolean
+	peek(): any
+	enqueue(items: any[]): any
+	dequeue(): IQueue
+	equals(IQueue): boolean
+	lte(IQueue): boolean
+	concat(IQueue): IQueue
+	empty(): IQueue
+}
+
+function Quuu(...xs: any[]): IQueue {
 	return {
 		[Symbol.iterator]: function*() {
 			yield* xs
@@ -7,22 +21,28 @@ function Queue(...xs) {
 		inspect: () => xs.join(' <- '),
 		isEmpty: () => (xs.length ? true : false),
 		peek: () => (xs.length ? xs[0] : null),
-		enqueue: (...ys) => Queue(...xs, ...ys),
+		enqueue: (...items) => Quuu(...xs, ...items),
 		dequeue: () => {
 			const [_, ...tail] = xs
-			return Queue(...tail)
+			return Quuu(...tail)
 		},
 		// Static-land
-		equals: q => [...q[Symbol.iterator]()].every((x, i) => x === xs[i]),
+		equals: q => {
+			let i = 0
+			for (const value of q[Symbol.iterator]())
+				if (xs[i++] !== value) return false
+
+			return true
+		},
 		lte: q => xs.length <= q.length,
-		concat: q => Queue(...xs, ...q[Symbol.iterator]()),
-		empty: () => Queue()
+		concat: q => Quuu(...xs, ...q[Symbol.iterator]()),
+		empty: () => Quuu()
 	}
 }
 
-const a = Queue(1, 2, 3)
-const b = Queue(1, 2, 3)
-const c = Queue(1, 2, 3)
+const a = Quuu(1, 2, 3)
+const b = Quuu(1, 2, 3)
+const c = Quuu(1, 2, 3)
 
 {
 	// Setoid
