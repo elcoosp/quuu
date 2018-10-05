@@ -35,7 +35,7 @@
 
 **● length**: *`number`*
 
-*Defined in [index.ts:3](https://github.com/elcoosp/quuu/blob/b11b130/src/index.ts#L3)*
+*Defined in [index.ts:3](https://github.com/elcoosp/quuu/blob/bb79fcb/src/index.ts#L3)*
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 ▸ **__@iterator**(): `Iterable`<`any`>
 
-*Defined in [index.ts:2](https://github.com/elcoosp/quuu/blob/b11b130/src/index.ts#L2)*
+*Defined in [index.ts:2](https://github.com/elcoosp/quuu/blob/bb79fcb/src/index.ts#L2)*
 
 **Returns:** `Iterable`<`any`>
 
@@ -58,7 +58,7 @@ ___
 
 ▸ **concat**(IQueue: *`any`*): [IQueue](_index_.iqueue.md)
 
-*Defined in [index.ts:11](https://github.com/elcoosp/quuu/blob/b11b130/src/index.ts#L11)*
+*Defined in [index.ts:11](https://github.com/elcoosp/quuu/blob/bb79fcb/src/index.ts#L11)*
 
 **Parameters:**
 
@@ -75,7 +75,7 @@ ___
 
 ▸ **dequeue**(): [IQueue](_index_.iqueue.md)
 
-*Defined in [index.ts:8](https://github.com/elcoosp/quuu/blob/b11b130/src/index.ts#L8)*
+*Defined in [index.ts:8](https://github.com/elcoosp/quuu/blob/bb79fcb/src/index.ts#L8)*
 
 **Returns:** [IQueue](_index_.iqueue.md)
 
@@ -86,7 +86,7 @@ ___
 
 ▸ **empty**(): [IQueue](_index_.iqueue.md)
 
-*Defined in [index.ts:12](https://github.com/elcoosp/quuu/blob/b11b130/src/index.ts#L12)*
+*Defined in [index.ts:12](https://github.com/elcoosp/quuu/blob/bb79fcb/src/index.ts#L12)*
 
 **Returns:** [IQueue](_index_.iqueue.md)
 
@@ -97,7 +97,7 @@ ___
 
 ▸ **enqueue**(newItems: *`any`[]*): `any`
 
-*Defined in [index.ts:7](https://github.com/elcoosp/quuu/blob/b11b130/src/index.ts#L7)*
+*Defined in [index.ts:7](https://github.com/elcoosp/quuu/blob/bb79fcb/src/index.ts#L7)*
 
 **Parameters:**
 
@@ -114,7 +114,7 @@ ___
 
 ▸ **equals**(IQueue: *`any`*): `boolean`
 
-*Defined in [index.ts:9](https://github.com/elcoosp/quuu/blob/b11b130/src/index.ts#L9)*
+*Defined in [index.ts:9](https://github.com/elcoosp/quuu/blob/bb79fcb/src/index.ts#L9)*
 
 **Parameters:**
 
@@ -131,7 +131,7 @@ ___
 
 ▸ **inspect**(): `string`
 
-*Defined in [index.ts:4](https://github.com/elcoosp/quuu/blob/b11b130/src/index.ts#L4)*
+*Defined in [index.ts:4](https://github.com/elcoosp/quuu/blob/bb79fcb/src/index.ts#L4)*
 
 **Returns:** `string`
 
@@ -142,7 +142,7 @@ ___
 
 ▸ **isEmpty**(): `boolean`
 
-*Defined in [index.ts:5](https://github.com/elcoosp/quuu/blob/b11b130/src/index.ts#L5)*
+*Defined in [index.ts:5](https://github.com/elcoosp/quuu/blob/bb79fcb/src/index.ts#L5)*
 
 **Returns:** `boolean`
 
@@ -153,7 +153,7 @@ ___
 
 ▸ **lte**(IQueue: *`any`*): `boolean`
 
-*Defined in [index.ts:10](https://github.com/elcoosp/quuu/blob/b11b130/src/index.ts#L10)*
+*Defined in [index.ts:10](https://github.com/elcoosp/quuu/blob/bb79fcb/src/index.ts#L10)*
 
 **Parameters:**
 
@@ -170,7 +170,7 @@ ___
 
 ▸ **peek**(): `any`
 
-*Defined in [index.ts:6](https://github.com/elcoosp/quuu/blob/b11b130/src/index.ts#L6)*
+*Defined in [index.ts:6](https://github.com/elcoosp/quuu/blob/bb79fcb/src/index.ts#L6)*
 
 **Returns:** `any`
 
