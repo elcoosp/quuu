@@ -1,45 +1,55 @@
 import Quuu, { IQueue } from './index'
-const a: IQueue = Quuu(1, 2, 3)
-const b: IQueue = Quuu(1, 2, 3)
-const c: IQueue = Quuu(1, 2, 3)
 
-{
-	// Setoid
-	const reflexivity = a.equals(b) === true
-	const symmetry = a.equals(b) === b.equals(a)
-	const transitivity = a.equals(b) && b.equals(c) && a.equals(c)
-	console.log('Setoid', {
-		reflexivity,
-		symmetry,
-		transitivity
+const setup = () => {
+	const a: IQueue = Quuu(1, 2, 3)
+	const b: IQueue = Quuu(1, 2, 3)
+	const c: IQueue = Quuu(1, 2, 3)
+
+	return { a, b, c }
+}
+
+describe('should follow static-land spec', () => {
+	it('Setoid', () => {
+		const { a, b, c } = setup()
+		const reflexivity = a.equals(b)
+		const symmetry = a.equals(b) === b.equals(a)
+		const transitivity = a.equals(b) && b.equals(c) && a.equals(c)
+
+		expect(reflexivity).toBe(true)
+		expect(symmetry).toBe(true)
+		expect(transitivity).toBe(true)
 	})
-}
 
-{
-	// Ord
-	const totality = a.lte(b) || b.lte(a)
-	const antisymmetry = a.lte(b) && b.lte(a) && a.equals(b)
-	const transitivity = a.lte(b) && b.lte(c) && a.lte(c)
-	console.log('Ord', { totality, antisymmetry, transitivity })
-}
+	it('Ord', () => {
+		const { a, b, c } = setup()
+		const totality = a.lte(b) || b.lte(a)
+		const antisymmetry = a.lte(b) && b.lte(a) && a.equals(b)
+		const transitivity = a.lte(b) && b.lte(c) && a.lte(c)
 
-{
-	// Semigroup
+		expect(totality).toBe(true)
+		expect(antisymmetry).toBe(true)
+		expect(transitivity).toBe(true)
+	})
 
-	const associativity = a
-		.concat(b)
-		.concat(c)
-		.equals(a.concat(b.concat(c)))
-	console.log('Semigroup', { associativity })
-}
+	it('Semigroup', () => {
+		const { a, b, c } = setup()
+		const associativity = a
+			.concat(b)
+			.concat(c)
+			.equals(a.concat(b.concat(c)))
 
-{
-	// Monoid
-	const rightId = a.concat(a.empty()).equals(a)
-	const leftId = a
-		.empty()
-		.concat(a)
-		.equals(a)
+		expect(associativity).toBe(true)
+	})
 
-	console.log('Monoid', { rightId, leftId })
-}
+	it('Monoid', () => {
+		const { a } = setup()
+		const rightId = a.concat(a.empty()).equals(a)
+		const leftId = a
+			.empty()
+			.concat(a)
+			.equals(a)
+
+		expect(rightId).toBe(true)
+		expect(leftId).toBe(true)
+	})
+})
