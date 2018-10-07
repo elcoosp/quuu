@@ -7,7 +7,6 @@ export interface IQueue {
 	enqueue(newItems: any[]): any
 	dequeue(): IQueue
 	equals(IQueue): boolean
-	lte(IQueue): boolean
 	concat(IQueue): IQueue
 	empty(): IQueue
 }
@@ -34,7 +33,6 @@ function Quuu(...items: any[]): IQueue {
 
 			return true
 		},
-		lte: queue => items.length <= queue.length,
 		concat: queue => Quuu(...items, ...queue[Symbol.iterator]()),
 		empty: () => Quuu()
 	}

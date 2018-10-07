@@ -2,7 +2,7 @@ import Quuu, { IQueue } from './index'
 
 const setup = () => {
 	const a: IQueue = Quuu(1, 2, 3)
-	const b: IQueue = Quuu(1, 2, 3)
+	const b: IQueue = Quuu(1, 2, 4, 6)
 	const c: IQueue = Quuu(1, 2, 3)
 
 	return { a, b, c }
@@ -17,17 +17,6 @@ describe('should follow static-land spec', () => {
 
 		expect(reflexivity).toBe(true)
 		expect(symmetry).toBe(true)
-		expect(transitivity).toBe(true)
-	})
-
-	it('Ord', () => {
-		const { a, b, c } = setup()
-		const totality = a.lte(b) || b.lte(a)
-		const antisymmetry = a.lte(b) && b.lte(a) && a.equals(b)
-		const transitivity = a.lte(b) && b.lte(c) && a.lte(c)
-
-		expect(totality).toBe(true)
-		expect(antisymmetry).toBe(true)
 		expect(transitivity).toBe(true)
 	})
 
