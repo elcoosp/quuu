@@ -4,7 +4,7 @@ export interface IQueue {
 	inspect(): string
 	isEmpty(): boolean
 	peek(): any
-	enqueue(newItems: any[]): any
+	enqueue(...newItems: any[]): IQueue
 	dequeue(): IQueue
 	equals(IQueue): boolean
 	concat(IQueue): IQueue
@@ -18,9 +18,9 @@ function Quuu(...items: any[]): IQueue {
 		},
 		length: items.length,
 		inspect: () => items.join(' <- '),
-		isEmpty: () => (items.length ? true : false),
+		isEmpty: () => !items.length,
 		peek: () => (items.length ? items[0] : null),
-		enqueue: (...newItems) => Quuu(...items, ...items),
+		enqueue: (...newItems) => Quuu(...items.concat(newItems)),
 		dequeue: () => {
 			const [_, ...tail] = items
 			return Quuu(...tail)
