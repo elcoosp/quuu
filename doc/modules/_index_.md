@@ -22,7 +22,7 @@
 
 ▸ **Quuu**(...items: *`any`[]*): [IQueue](../interfaces/_index_.iqueue.md)
 
-*Defined in [index.ts:14](https://github.com/elcoosp/quuu/blob/32cd3e4/src/index.ts#L14)*
+*Defined in [index.ts:14](https://github.com/elcoosp/quuu/blob/a9b82f7/src/index.ts#L14)*
 
 **Parameters:**
 
